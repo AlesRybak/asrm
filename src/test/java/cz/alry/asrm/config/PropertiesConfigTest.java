@@ -11,7 +11,7 @@ public class PropertiesConfigTest {
     @Test
     public void testGetSimpleValue() throws Exception {
         Config config = PropertiesConfig.getInstance();
-        assertEquals("I expect simple string value to be returned.", "http", config.getProtocol());
+        assertTrue("I expect simple string value to be returned.", config.getProtocol().startsWith("http"));
     }
 
 }

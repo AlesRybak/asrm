@@ -8,11 +8,20 @@ import com.beust.jcommander.Parameter;
 public class GlobalCommandParams {
 
     @Parameter(
-            names = {"-p", "--pass"},
+            names = {"-p", "--password"},
             description = "Password")
     private String password = "";
 
+    @Parameter(
+            names = {"-o", "--otp"},
+            description = "OTP")
+    private String otp = null;
+
     public String getPassword() {
         return password;
+    }
+
+    public String getOtp() {
+        return otp;
     }
 }

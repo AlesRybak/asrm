@@ -1,10 +1,10 @@
 package cz.alry.asrm.testconnection;
 
-import java.util.Map;
 import cz.alry.asrm.GlobalCommandParams;
 import cz.alry.asrm.config.Config;
 import cz.alry.asrm.config.PropertiesConfig;
-import cz.alry.asrm.synology.SynoApis;
+import cz.alry.asrm.synology.LoginCookie;
+import cz.alry.asrm.synology.LoginResponse;
 import cz.alry.asrm.synology.Synology;
 import cz.alry.jcommander.CommandRunner;
 import feign.Feign;
@@ -32,9 +32,14 @@ public class TestConnectionCommandRunner implements CommandRunner<GlobalCommandP
                 .logLevel(feign.Logger.Level.FULL)
                 .target(Synology.class, config.getProtocol() + "://" + config.getServerName());
 
-        Object info = synology.getInfo();
 
-        LOG.info("Result: {}", info.getClass().getName());
+        LoginResponse loginResponse;
+        if (globalParams.getOtp() != null) {
+            loginResponse = synology.loginWithOtp(config.getUserLogin(), globalParams.getPassword(), globalParams.getOtp());
+        } else {
+            loginResponse = synology.login(config.getUserLogin(), globalParams.getPassword());
+        }
+        LOG.info("Login result: {}", loginResponse);
     }
 
 

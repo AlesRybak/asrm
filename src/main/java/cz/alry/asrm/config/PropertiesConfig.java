@@ -56,8 +56,10 @@ public class PropertiesConfig implements Config {
         File configFile = new File(System.getProperty("user.home"), ".config/asrm/asrm.properties");
 
         if (configFile.isFile() && configFile.canRead()) {
+            LOG.info("Found configuration file: {}", configFile);
             configUrl = configFile.toURI().toURL();
         } else {
+            LOG.warn("Configuration file {} not found, using defaults.", configFile);
             configUrl = this.getClass().getResource("asrm.properties");
         }
 
