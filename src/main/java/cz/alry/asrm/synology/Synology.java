@@ -7,7 +7,7 @@ import feign.RequestLine;
  */
 public interface Synology {
 
-    @RequestLine("GET /webapi/query.cgi?api=SYNO.API.Info&version=1&method=query&query=SYNO.API.Auth")
+    @RequestLine("GET /webapi/query.cgi?api=SYNO.API.Info&version=1&method=query&query=SYNO.API.Auth,SYNO.")
     Object getInfo();
 
 }

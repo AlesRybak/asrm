@@ -10,14 +10,4 @@ import com.beust.jcommander.Parameters;
     commandNames = {"test"}
 )
 public class TestConnectionCommandParams {
-
-    @Parameter(
-            names = {"-c"},
-            description = "Count of messages")
-    private int numberOfMessages = 10;
-
-    public int getNumberOfMessages() {
-        return numberOfMessages;
-    }
-
 }

@@ -1,6 +1,10 @@
 package cz.alry.asrm.testconnection;
 
+import java.util.Map;
 import cz.alry.asrm.GlobalCommandParams;
+import cz.alry.asrm.config.Config;
+import cz.alry.asrm.config.PropertiesConfig;
+import cz.alry.asrm.synology.SynoApis;
 import cz.alry.asrm.synology.Synology;
 import cz.alry.jcommander.CommandRunner;
 import feign.Feign;
@@ -17,6 +21,7 @@ public class TestConnectionCommandRunner implements CommandRunner<GlobalCommandP
 
     private static final Logger LOG = LoggerFactory.getLogger(TestConnectionCommandRunner.class);
 
+    private Config config = PropertiesConfig.getInstance();
 
     public void run(GlobalCommandParams globalParams, TestConnectionCommandParams generateParams) {
         LOG.info("Hello you!");
@@ -25,11 +30,11 @@ public class TestConnectionCommandRunner implements CommandRunner<GlobalCommandP
                 .encoder(new JacksonEncoder())
                 .logger(new Slf4jLogger())
                 .logLevel(feign.Logger.Level.FULL)
-                .target(Synology.class, "http://" + globalParams.getHost());
+                .target(Synology.class, config.getProtocol() + "://" + config.getServerName());
 
         Object info = synology.getInfo();
 
-        LOG.info("Result: {}", info);
+        LOG.info("Result: {}", info.getClass().getName());
     }
 
 

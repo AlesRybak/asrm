@@ -8,11 +8,11 @@ import com.beust.jcommander.Parameter;
 public class GlobalCommandParams {
 
     @Parameter(
-            names = {"-h", "--host"},
-            description = "Synology server host and port")
-    private String host = "";
+            names = {"-p", "--pass"},
+            description = "Password")
+    private String password = "";
 
-    public String getHost() {
-        return host;
+    public String getPassword() {
+        return password;
     }
 }

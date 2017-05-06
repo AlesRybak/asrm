@@ -31,6 +31,16 @@
             <version>3.4.1</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-configuration2</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.9.3</version>
+        </dependency>
+        <dependency>
             <groupId>cz.alry.jcommander</groupId>
             <artifactId>jcommander-wrapper</artifactId>
             <version>1.0.0</version>
