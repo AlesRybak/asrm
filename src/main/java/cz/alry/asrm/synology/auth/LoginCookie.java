@@ -1,4 +1,4 @@
-package cz.alry.asrm.synology;
+package cz.alry.asrm.synology.auth;
 
 /**
  * @author Ales Rybak(ales.rybak@lundegaard.eu)

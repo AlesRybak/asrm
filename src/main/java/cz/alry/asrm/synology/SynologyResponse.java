@@ -3,11 +3,11 @@ package cz.alry.asrm.synology;
 /**
  * @author Ales Rybak(ales.rybak@lundegaard.eu)
  */
-public class LoginResponse {
+public class SynologyResponse<T> {
 
     private boolean success;
     private SynologyError error;
-    private LoginCookie data;
+    private T data;
 
     public boolean isSuccess() {
         return success;
@@ -25,16 +25,16 @@ public class LoginResponse {
         this.error = error;
     }
 
-    public LoginCookie getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(LoginCookie data) {
+    public void setData(T data) {
         this.data = data;
     }
 
     @Override
     public String toString() {
-        return "LoginResponse{" + "success=" + success + ", error=" + error + ", data=" + data + '}';
+        return "SynologyResponse{" + "success=" + success + ", error=" + error + ", data=" + data + '}';
     }
 }
